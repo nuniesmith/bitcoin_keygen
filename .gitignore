@@ -1,0 +1,11 @@
+/target
+Cargo.lock
+
+# Generated output files (keep examples)
+output/seed_phrase_printable.txt
+output/seed_words_simple.txt
+output/seed_words_for_coldcard.txt
+
+# Keep example files
+!output/example_*
+!output/README.md

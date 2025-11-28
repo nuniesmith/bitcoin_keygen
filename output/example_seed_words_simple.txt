@@ -1,0 +1,28 @@
+ 1. abandon
+ 2. abandon
+ 3. abandon
+ 4. abandon
+ 5. abandon
+ 6. abandon
+ 7. abandon
+ 8. abandon
+ 9. abandon
+10. abandon
+11. abandon
+12. about
+13. [EXAMPLE WORD 13]
+14. [EXAMPLE WORD 14]
+15. [EXAMPLE WORD 15]
+16. [EXAMPLE WORD 16]
+17. [EXAMPLE WORD 17]
+18. [EXAMPLE WORD 18]
+19. [EXAMPLE WORD 19]
+20. [EXAMPLE WORD 20]
+21. [EXAMPLE WORD 21]
+22. [EXAMPLE WORD 22]
+23. [EXAMPLE WORD 23]
+24. [EXAMPLE WORD 24]
+
+NOTE: This is an EXAMPLE file with placeholder words.
+DO NOT use this seed phrase for actual Bitcoin storage!
+
