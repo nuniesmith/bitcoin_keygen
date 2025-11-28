@@ -72,8 +72,8 @@
 <a href=#72 id=72 data-nosnippet>72</a>    </span>output.push_str(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">"Label: {}\n"</span>, label));
 <a href=#73 id=73 data-nosnippet>73</a>    output.push_str(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">"Generated: {}\n"</span>, timestamp));
 <a href=#74 id=74 data-nosnippet>74</a>    output.push_str(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">"Fingerprint: {}\n"</span>, fingerprint));
-<a href=#75 id=75 data-nosnippet>75</a>    output.push_str(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">"Word Count: 24 words (256 bits entropy)\n"</span>));
-<a href=#76 id=76 data-nosnippet>76</a>    output.push_str(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">"Network: Bitcoin Mainnet\n\n"</span>));
+<a href=#75 id=75 data-nosnippet>75</a>    output.push_str(<span class="string">"Word Count: 24 words (256 bits entropy)\n"</span>);
+<a href=#76 id=76 data-nosnippet>76</a>    output.push_str(<span class="string">"Network: Bitcoin Mainnet\n\n"</span>);
 <a href=#77 id=77 data-nosnippet>77</a>
 <a href=#78 id=78 data-nosnippet>78</a>    <span class="comment">// Warning
 <a href=#79 id=79 data-nosnippet>79</a>    </span>output.push_str(<span class="string">"⚠️  SECURITY WARNING ⚠️\n"</span>);
@@ -94,18 +94,18 @@
 <a href=#94 id=94 data-nosnippet>94</a>
 <a href=#95 id=95 data-nosnippet>95</a>        <span class="comment">// New line every 4 words
 <a href=#96 id=96 data-nosnippet>96</a>        </span><span class="kw">if </span>word_num % <span class="number">4 </span>== <span class="number">0 </span>{
-<a href=#97 id=97 data-nosnippet>97</a>            output.push_str(<span class="string">"\n"</span>);
+<a href=#97 id=97 data-nosnippet>97</a>            output.push(<span class="string">'\n'</span>);
 <a href=#98 id=98 data-nosnippet>98</a>        } <span class="kw">else </span>{
 <a href=#99 id=99 data-nosnippet>99</a>            output.push_str(<span class="string">"  "</span>);
 <a href=#100 id=100 data-nosnippet>100</a>        }
 <a href=#101 id=101 data-nosnippet>101</a>    }
 <a href=#102 id=102 data-nosnippet>102</a>
 <a href=#103 id=103 data-nosnippet>103</a>    <span class="comment">// Ensure last line ends properly
-<a href=#104 id=104 data-nosnippet>104</a>    </span><span class="kw">if </span>words.len() % <span class="number">4 </span>!= <span class="number">0 </span>{
-<a href=#105 id=105 data-nosnippet>105</a>        output.push_str(<span class="string">"\n"</span>);
+<a href=#104 id=104 data-nosnippet>104</a>    </span><span class="kw">if </span>!words.len().is_multiple_of(<span class="number">4</span>) {
+<a href=#105 id=105 data-nosnippet>105</a>        output.push(<span class="string">'\n'</span>);
 <a href=#106 id=106 data-nosnippet>106</a>    }
 <a href=#107 id=107 data-nosnippet>107</a>
-<a href=#108 id=108 data-nosnippet>108</a>    output.push_str(<span class="string">"\n"</span>);
+<a href=#108 id=108 data-nosnippet>108</a>    output.push(<span class="string">'\n'</span>);
 <a href=#109 id=109 data-nosnippet>109</a>    output.push_str(<span class="string">"═══════════════════════════════════════════════════════════════\n"</span>);
 <a href=#110 id=110 data-nosnippet>110</a>    output.push_str(<span class="string">"VERIFICATION CHECKLIST:\n"</span>);
 <a href=#111 id=111 data-nosnippet>111</a>    output.push_str(<span class="string">"─────────────────────────────────────────────────────────────\n"</span>);
@@ -472,7 +472,7 @@
 <a href=#472 id=472 data-nosnippet>472</a>        <span class="comment">// With high probability, all fingerprints should be unique
 <a href=#473 id=473 data-nosnippet>473</a>        // (though collisions are possible, they're extremely rare)
 <a href=#474 id=474 data-nosnippet>474</a>        </span><span class="macro">assert!</span>(
-<a href=#475 id=475 data-nosnippet>475</a>            fingerprints.len() &gt; <span class="number">0</span>,
+<a href=#475 id=475 data-nosnippet>475</a>            !fingerprints.is_empty(),
 <a href=#476 id=476 data-nosnippet>476</a>            <span class="string">"Should generate at least one fingerprint"
 <a href=#477 id=477 data-nosnippet>477</a>        </span>);
 <a href=#478 id=478 data-nosnippet>478</a>    }
