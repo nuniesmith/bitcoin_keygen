@@ -72,8 +72,8 @@ fn create_printable_output(mnemonic: &Mnemonic, fingerprint: &str, label: &str) 
     output.push_str(&format!("Label: {}\n", label));
     output.push_str(&format!("Generated: {}\n", timestamp));
     output.push_str(&format!("Fingerprint: {}\n", fingerprint));
-    output.push_str(&format!("Word Count: 24 words (256 bits entropy)\n"));
-    output.push_str(&format!("Network: Bitcoin Mainnet\n\n"));
+    output.push_str("Word Count: 24 words (256 bits entropy)\n");
+    output.push_str("Network: Bitcoin Mainnet\n\n");
 
     // Warning
     output.push_str("⚠️  SECURITY WARNING ⚠️\n");
@@ -94,18 +94,18 @@ fn create_printable_output(mnemonic: &Mnemonic, fingerprint: &str, label: &str) 
 
         // New line every 4 words
         if word_num % 4 == 0 {
-            output.push_str("\n");
+            output.push('\n');
         } else {
             output.push_str("  ");
         }
     }
 
     // Ensure last line ends properly
-    if words.len() % 4 != 0 {
-        output.push_str("\n");
+    if !words.len().is_multiple_of(4) {
+        output.push('\n');
     }
 
-    output.push_str("\n");
+    output.push('\n');
     output.push_str("═══════════════════════════════════════════════════════════════\n");
     output.push_str("VERIFICATION CHECKLIST:\n");
     output.push_str("─────────────────────────────────────────────────────────────\n");
@@ -472,7 +472,7 @@ mod tests {
         // With high probability, all fingerprints should be unique
         // (though collisions are possible, they're extremely rare)
         assert!(
-            fingerprints.len() > 0,
+            !fingerprints.is_empty(),
             "Should generate at least one fingerprint"
         );
     }
